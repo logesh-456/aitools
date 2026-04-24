@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare AI Tools — AIToolsIndia</title>
+<meta name="description" content="Side-by-side AI tools comparisons for Indian users. Real INR pricing, honest ratings.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.compare-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 1.5rem;
+  text-decoration: none; color: inherit; display: block;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.compare-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.compare-vs {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1rem;
+}
+.vs-logo {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 800; color: #fff;
+}
+.vs-divider { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 800; color: var(--muted); }
+.compare-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+.compare-card p { font-size: 0.8rem; color: var(--muted); }
+.winner-badge { display: inline-block; background: var(--tag-bg); color: var(--tag-fg); font-size: 0.68rem; font-weight: 600; padding: 2px 10px; border-radius: 100px; margin-top: 0.6rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">AITools<span>India</span></a>
+  <ul class="nav-links">
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="compare.html">Compare</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html#newsletter">Subscribe Free</a>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb"><a href="index.html">Home</a> › Compare</div>
+  <h1>Compare AI Tools</h1>
+  <p>Side-by-side comparisons built for Indian users — with ₹ pricing & honest verdicts.</p>
+</div>
+
+<div class="container">
+  <div id="ad-compare-top" class="ad-banner horizontal">Advertisement — Google AdSense (728×90)</div>
+</div>
+
+<!-- QUICK COMPARE TOOL -->
+<div class="container" style="margin: 1.5rem auto;">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.5rem;">
+    <h2 style="font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:1rem;">Quick Compare</h2>
+    <div style="display:grid;grid-template-columns:1fr auto 1fr auto;gap:1rem;align-items:center;margin-bottom:1rem;">
+      <select id="tool1" style="padding:10px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);font-family:'DM Sans',sans-serif;font-size:0.9rem;">
+        <option value="chatgpt">ChatGPT</option>
+        <option value="gemini">Gemini</option>
+        <option value="claude">Claude</option>
+        <option value="jasper">Jasper AI</option>
+        <option value="semrush">SEMrush</option>
+        <option value="writesonic">Writesonic</option>
+      </select>
+      <div style="font-family:'Syne',sans-serif;font-weight:800;color:var(--muted);">VS</div>
+      <select id="tool2" style="padding:10px 14px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);font-family:'DM Sans',sans-serif;font-size:0.9rem;">
+        <option value="gemini">Gemini</option>
+        <option value="chatgpt">ChatGPT</option>
+        <option value="claude">Claude</option>
+        <option value="jasper">Jasper AI</option>
+        <option value="semrush">SEMrush</option>
+        <option value="writesonic">Writesonic</option>
+      </select>
+      <button onclick="runCompare()" style="padding:10px 24px;border-radius:10px;background:var(--accent);color:#fff;border:none;font-family:'DM Sans',sans-serif;font-weight:600;cursor:pointer;">Compare →</button>
+    </div>
+    <div id="compare-result" style="display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
+      <p style="font-size:0.9rem;color:var(--ink2);" id="compare-text"></p>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE CARDS GRID -->
+<section class="page-wrap" style="padding-top:1rem;">
+  <div class="section-header">
+    <div class="section-title">Popular Comparisons</div>
+  </div>
+  <div class="cards-grid">
+
+    <a href="article.html" class="compare-card">
+      <div class="compare-vs">
+        <div class="vs-logo" style="background:linear-gradient(135deg,#0e0e0e,#333);">GPT</div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-logo" style="background:linear-gradient(135deg,#3B6D11,#639922);">GEM</div>
+      </div>
+      <h3>ChatGPT vs Gemini</h3>
+      <p>Which is better for Indian students & creators in 2025?</p>
+      <div class="winner-badge">Winner: ChatGPT (Overall)</div>
+    </a>
+
+    <a href="article.html" class="compare-card">
+      <div class="compare-vs">
+        <div class="vs-logo" style="background:linear-gradient(135deg,#ff4e1a,#ff8c00);">SEM</div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-logo" style="background:linear-gradient(135deg,#185FA5,#378ADD);">AH</div>
+      </div>
+      <h3>SEMrush vs Ahrefs</h3>
+      <p>Best SEO tool for Indian bloggers — with INR pricing</p>
+      <div class="winner-badge">Winner: SEMrush (Value)</div>
+    </a>
+
+    <a href="article.html" class="compare-card">
+      <div class="compare-vs">
+        <div class="vs-logo" style="background:linear-gradient(135deg,#0038ff,#00aaff);">JAS</div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-logo" style="background:linear-gradient(135deg,#00a878,#00d4a8);">WS</div>
+      </div>
+      <h3>Jasper vs Writesonic</h3>
+      <p>Best AI writing tool for Indian content creators?</p>
+      <div class="winner-badge">Winner: Writesonic (Budget)</div>
+    </a>
+
+    <a href="article.html" class="compare-card">
+      <div class="compare-vs">
+        <div class="vs-logo" style="background:linear-gradient(135deg,#0e0e0e,#444);">MJ</div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-logo" style="background:linear-gradient(135deg,#ff4e1a,#d90429);">CN</div>
+      </div>
+      <h3>Midjourney vs Canva AI</h3>
+      <p>Which AI image tool should Indian designers use?</p>
+      <div class="winner-badge">Winner: Midjourney (Quality)</div>
+    </a>
+
+    <a href="article.html" class="compare-card">
+      <div class="compare-vs">
+        <div class="vs-logo" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">NT</div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-logo" style="background:linear-gradient(135deg,#185FA5,#378ADD);">OT</div>
+      </div>
+      <h3>Notion AI vs Otter.ai</h3>
+      <p>Best productivity AI for Indian remote workers</p>
+      <div class="winner-badge">Winner: Notion AI (Overall)</div>
+    </a>
+
+    <a href="article.html" class="compare-card">
+      <div class="compare-vs">
+        <div class="vs-logo" style="background:linear-gradient(135deg,#0e0e0e,#333);">GPT</div>
+        <div class="vs-divider">VS</div>
+        <div class="vs-logo" style="background:linear-gradient(135deg,#534AB7,#7F77DD);">CL</div>
+      </div>
+      <h3>ChatGPT vs Claude</h3>
+      <p>Which AI chatbot writes better content for Indians?</p>
+      <div class="winner-badge">Winner: Claude (Writing)</div>
+    </a>
+
+  </div>
+</section>
+
+<div class="container">
+  <div id="ad-compare-bottom" class="ad-banner horizontal">Advertisement — Google AdSense (728×90)</div>
+</div>
+
+<div class="footer-top">
+  <div class="footer-col"><h4>AIToolsIndia</h4><ul><li><a href="about.html">About</a></li><li><a href="about.html#contact">Contact</a></li></ul></div>
+  <div class="footer-col"><h4>Reviews</h4><ul><li><a href="reviews.html">All Reviews</a></li><li><a href="compare.html">Compare</a></li></ul></div>
+  <div class="footer-col"><h4>Blog</h4><ul><li><a href="blog.html">Latest Posts</a></li></ul></div>
+  <div class="footer-col"><h4>Legal</h4><ul><li><a href="about.html#privacy">Privacy</a></li><li><a href="about.html#affiliate">Disclosure</a></li></ul></div>
+</div>
+<footer>
+  <div class="footer-bottom">
+    <p>© 2025 AIToolsIndia · <a href="about.html#affiliate">Affiliate Disclosure</a> · <a href="about.html#privacy">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+const toolData = {
+  chatgpt: { name: 'ChatGPT', price: '₹1,650/mo', best: 'coding & plugins', score: 9.1 },
+  gemini: { name: 'Gemini', price: '₹850/mo', best: 'Google Workspace & Hindi', score: 8.0 },
+  claude: { name: 'Claude', price: '₹1,650/mo', best: 'creative writing', score: 8.9 },
+  jasper: { name: 'Jasper AI', price: '~₹7,000/mo', best: 'marketing content', score: 9.0 },
+  semrush: { name: 'SEMrush', price: '~₹9,000/mo', best: 'SEO & competitor analysis', score: 8.8 },
+  writesonic: { name: 'Writesonic', price: '~₹1,500/mo', best: 'budget AI writing', score: 8.2 },
+};
+function runCompare() {
+  const t1 = toolData[document.getElementById('tool1').value];
+  const t2 = toolData[document.getElementById('tool2').value];
+  const winner = t1.score >= t2.score ? t1 : t2;
+  document.getElementById('compare-result').style.display = 'block';
+  document.getElementById('compare-text').innerHTML =
+    `<strong>${t1.name}</strong> (${t1.price}, best for ${t1.best}, score: ${t1.score}) vs <strong>${t2.name}</strong> (${t2.price}, best for ${t2.best}, score: ${t2.score}). <br><br>🏆 <strong>Our pick: ${winner.name}</strong> — scores higher overall. <a href="article.html" style="color:var(--accent)">Read full comparison →</a>`;
+}
+</script>
+</body>
+</html>
